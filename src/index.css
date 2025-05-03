@@ -70,7 +70,11 @@ header h2 {
 header p {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.3rem;
+  text-align: start;
+  padding-left: 10rem;
+  
+
 
 }
 

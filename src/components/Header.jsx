@@ -12,7 +12,7 @@ export default function Header() {
             What is Numerical Methods?
         </h2>
         <p>
-        Numerical methods are a collection of algorithmic techniques used to obtain approximate solutions to mathematical problems that are difficult or impossible to solve analytically. By representing continuous quantities with discrete values and iteratively refining those approximations, numerical methods enable computers to handle tasks such as solving systems of linear and nonlinear equations, performing numerical integration and differentiation, finding eigenvalues, and simulating physical processes. They balance accuracy, efficiency, and stability, allowing engineers and scientists to model complex real‑world phenomena where exact formulas are unavailable.
+        Numerical methods are a collection of algorithmic techniques used to obtain approximate solutions to mathematical problems that are difficult or impossible to solve analytically. By representing continuous quantities with discrete values and iteratively refining those approximations, numerical methods enable computers to handle tasks such as solving systems of linear and nonlinear equations.
 
         </p>
      </header>
