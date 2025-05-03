@@ -1,13 +1,14 @@
-import {logo} from '../assets/logo.png';
+import logoImg from '../assets/tutorial-logo.png';
+
 export default function Header() {
   return (
     <>
-     <div id="header">
-       <img src={logo} alt="a tutorial-app logo" />
+     <header>
+       <img src={logoImg} alt="a tutorial-app logo" />
        <h1>
-        
+        Numerical Methods Tutorial for Students
        </h1>
-     </div>
+     </header>
     </>
   )
 }
