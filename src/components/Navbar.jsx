@@ -3,9 +3,9 @@ export default function Navbar() {
     return (
         <div id="navbar">
             <img src={navbarLogo} alt="" />
-             <span>Yasin Peker</span>
+             <span>Yasin Serhat Peker</span>
              
-             <p>Welcome to my tutorial</p>
+             <p>Welcome to my tutorial!</p>
         </div>
         
     )

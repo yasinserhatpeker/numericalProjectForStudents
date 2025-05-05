@@ -185,15 +185,15 @@ header h3 {
   display: flex;
   justify-content:flex-start;
   align-items:center;
-  gap: 3rem;
+  gap: 2rem;
   margin:0;
   text-align: center;
   font-family: 'Lato', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(#65dcda, #29a5a3);
+  background: linear-gradient(#8e76fa, #8e76fa);
   color: #d9e2f1;
-  border-radius: 3rem;
+  border-radius: 5rem;
   width: 100%;
  
 }
@@ -202,4 +202,17 @@ header h3 {
   height: 4rem;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
   border-radius: 2.5rem; 
+}
+
+#navbar span {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+#navbar p {
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
 }
