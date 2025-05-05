@@ -92,12 +92,23 @@ header h3 {
   width: 6rem;
   height: 6rem;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+  margin-top: 1.5rem;
+  border-radius: 3rem;
 }
 
 #menu {
   
     margin: 2rem 0;
     text-align: center;
+    margin: 0;
+    font-family: 'Lato', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(#65dcda, #29a5a3);
+    color: #d9e2f1;
+    min-height: 100vh;
+    border-radius: 5rem;
+    
   
 }
 
@@ -108,7 +119,7 @@ header h3 {
  
   margin: 0;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #e781fb 40%, #8e76fa 60%);
+  background: linear-gradient(90deg, #e781fb 10%, #8e76fa 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

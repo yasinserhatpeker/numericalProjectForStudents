@@ -3,8 +3,9 @@ export default function Menu() {
 
     return (
         <div id='menu'>
-          <h3>Methods Section</h3>
+         
           <img src={mathLogo} alt="" />
+          <h3>Methods Section</h3>
         </div>
     )
 }
