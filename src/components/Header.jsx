@@ -17,6 +17,8 @@ export default function Header() {
          <h3>
             These are the Methods that We Talk About
          </h3>
+
+       
      </header>
     </>
   )
