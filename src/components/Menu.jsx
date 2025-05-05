@@ -1,5 +1,6 @@
 import mathLogo from '../assets/math-logo.jpg';
 import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
+import newtonRaphsonLogo from '../assets/newton-raphson.webp';
 export default function Menu() {
 
     return (
@@ -14,7 +15,7 @@ export default function Menu() {
              <button>Click for bisection</button>
              </div>
              <div className="section">
-            <img src={bisectionLogo} alt="" />
+            <img src={newtonRaphsonLogo} alt="" />
              <h4>Bisection Method</h4>
              <button>Click for bisection</button>
              </div>
