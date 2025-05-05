@@ -1,8 +1,8 @@
-import navbarLogo from '../assets/navbar-logo.png';
+import winnerLogo from '../assets/winner.png';
 export default function Navbar() {
     return (
         <div id="navbar">
-            <img src={navbarLogo} alt="" />
+            <img src={winnerLogo} alt="" />
              <span>Yasin Serhat Peker</span>
              
              <p>Welcome to my tutorial!</p>

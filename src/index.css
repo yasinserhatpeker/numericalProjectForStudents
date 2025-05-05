@@ -59,7 +59,7 @@ header h2 {
   font-size: 2rem;
   text-align: start;
   padding-left: 10rem;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   background: linear-gradient(90deg, #e781fb 20%, #8e76fa 80%);
   -webkit-background-clip: text;
@@ -185,7 +185,7 @@ header h3 {
   display: flex;
   justify-content:flex-start;
   align-items:center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin:0;
   text-align: center;
   font-family: 'Lato', serif;
@@ -195,6 +195,8 @@ header h3 {
   color: #d9e2f1;
   border-radius: 5rem;
   width: 100%;
+  padding: .2rem;
+  
  
 }
 #navbar img {
