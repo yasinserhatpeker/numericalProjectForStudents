@@ -14,10 +14,7 @@ export default function Header() {
         <p>
         Numerical methods are a collection of algorithmic techniques used to obtain approximate solutions to mathematical problems that are difficult or impossible to solve analytically. By representing continuous quantities with discrete values and iteratively refining those approximations, numerical methods enable computers to handle tasks such as solving systems of linear and nonlinear equations.
         </p>
-         <h3>
-            These are the Methods that We Talk About
-         </h3>
-
+        
        
      </header>
     </>
