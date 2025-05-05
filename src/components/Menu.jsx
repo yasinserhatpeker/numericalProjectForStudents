@@ -14,31 +14,31 @@ export default function Menu() {
             <div className="section">
             <img src={bisectionLogo} alt="" />
              <h4>Bisection</h4>
-             <button data-label="Register" class="rainbow-hover">
-              <span class="sp">Bisection</span>
+             <button data-label="Register" className="rainbow-hover">
+              <span className="sp">Bisection</span>
               </button>
              </div>
              <div className="section">
             <img src={newtonRaphsonLogo} alt="" />
              <h4>Newton Raphson</h4>
-             <button data-label="Register" class="rainbow-hover">
-              <span class="sp">Newton Raphson</span>
+             <button data-label="Register" className="rainbow-hover">
+              <span className="sp">Newton Raphson</span>
               </button>
              </div>
 
              <div className="section">
             <img src={simpsonsRule} alt="" />
              <h4>Simpson's Rule</h4>
-             <button data-label="Register" class="rainbow-hover">
-              <span class="sp">Simpson's Rule</span>
+             <button data-label="Register" className="rainbow-hover">
+              <span className="sp">Simpson's Rule</span>
               </button>
              </div>
 
              <div className="section">
             <img src={gaussSeidel} alt="" />
              <h4>Gauss Seidel</h4>
-             <button data-label="Register" class="rainbow-hover">
-              <span class="sp">Gauss Seidel</span>
+             <button data-label="Register" className="rainbow-hover">
+              <span className="sp">Gauss Seidel</span>
               </button>
              </div>
 

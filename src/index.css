@@ -172,11 +172,34 @@ header h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   display: block;
 }
 
 .rainbow-hover:active {
   transition: 0.3s;
   transform: scale(0.93);
+}
+
+#navbar {
+  display: flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap: 3rem;
+  margin:0;
+  text-align: center;
+  font-family: 'Lato', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(#65dcda, #29a5a3);
+  color: #d9e2f1;
+  border-radius: 3rem;
+  width: 100%;
+ 
+}
+#navbar img {
+  width: 4rem;
+  height: 4rem;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+  border-radius: 2.5rem; 
 }
