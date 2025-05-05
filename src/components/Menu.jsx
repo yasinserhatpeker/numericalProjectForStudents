@@ -1,6 +1,8 @@
 import mathLogo from '../assets/math-logo.jpg';
 import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
 import newtonRaphsonLogo from '../assets/newton-raphson.webp';
+import simpsonsRule from '../assets/simpsons-rule.png';
+import gaussSeidel from '../assets/gauss-seidel.gif';
 export default function Menu() {
 
     return (
@@ -21,13 +23,13 @@ export default function Menu() {
              </div>
 
              <div className="section">
-            <img src={bisectionLogo} alt="" />
+            <img src={simpsonsRule} alt="" />
              <h4>Bisection Method</h4>
              <button>Click for bisection</button>
              </div>
 
              <div className="section">
-            <img src={bisectionLogo} alt="" />
+            <img src={gaussSeidel} alt="" />
              <h4>Bisection Method</h4>
              <button>Click for bisection</button>
              </div>
