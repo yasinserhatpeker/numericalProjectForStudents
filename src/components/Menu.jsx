@@ -7,13 +7,32 @@ export default function Menu() {
          <img src={mathLogo} alt="" />
           <h3>Methods Section</h3>
           <div className="sections">
-             
-              <img src={bisectionLogo} alt="" />
+
+            <div className="section">
+            <img src={bisectionLogo} alt="" />
              <h4>Bisection Method</h4>
              <button>Click for bisection</button>
+             </div>
+             <div className="section">
+            <img src={bisectionLogo} alt="" />
+             <h4>Bisection Method</h4>
+             <button>Click for bisection</button>
+             </div>
 
-            
-          </div>
+             <div className="section">
+            <img src={bisectionLogo} alt="" />
+             <h4>Bisection Method</h4>
+             <button>Click for bisection</button>
+             </div>
+
+             <div className="section">
+            <img src={bisectionLogo} alt="" />
+             <h4>Bisection Method</h4>
+             <button>Click for bisection</button>
+             </div>
+
+
+            </div>
         </div>
     )
 }

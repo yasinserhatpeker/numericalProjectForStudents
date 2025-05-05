@@ -124,5 +124,11 @@ header h3 {
   -webkit-text-fill-color: transparent;
 }
 
+#menu .sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
 
+}
 
