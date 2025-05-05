@@ -13,24 +13,24 @@ export default function Menu() {
 
             <div className="section">
             <img src={bisectionLogo} alt="" />
-             <h4>Bisection Method</h4>
+             <h4>Bisection</h4>
              <button>Click for bisection</button>
              </div>
              <div className="section">
             <img src={newtonRaphsonLogo} alt="" />
-             <h4>Bisection Method</h4>
+             <h4>Newton Raphson</h4>
              <button>Click for bisection</button>
              </div>
 
              <div className="section">
             <img src={simpsonsRule} alt="" />
-             <h4>Bisection Method</h4>
+             <h4>Simpson's Rule</h4>
              <button>Click for bisection</button>
              </div>
 
              <div className="section">
             <img src={gaussSeidel} alt="" />
-             <h4>Bisection Method</h4>
+             <h4>Gauss Seidel</h4>
              <button>Click for bisection</button>
              </div>
 

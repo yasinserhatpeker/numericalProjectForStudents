@@ -79,9 +79,7 @@ header h3 {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
   font-size: 2rem;
-  
   margin-top: 3rem;
-
   background: linear-gradient(90deg, #e781fb 80%, #8e76fa 20%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -128,7 +126,15 @@ header h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10rem;
+  gap: 8rem;
+  margin-top: 2rem;
 
 }
 
+.section h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+   
+  
+}
