@@ -1,15 +1,26 @@
 import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
 import { useState } from 'react';
 import { evaluate } from 'mathjs';
-import Plot from 'plotly.js';
+
 export default function Bisection() {
-    
+
 const [fx,setFx]=useState('x^3 - x -2');
 const [a,setA]=useState(-2);
 const [b,setB]=useState( 3);
 const [tol,setTol]=useState(0.001);
 const [steps,setSteps]=useState([]);
 
+const f=x => evaluate(fx,{x});
+
+ function runBisection()
+ {
+    let aa = Number(a);
+    let bb = Number(b);
+    const ε = Number(tol);
+    const log = [];
+
+    
+ }
      return (
          <div id="menu">
             <div className="menu-bisection">
