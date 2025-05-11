@@ -2,6 +2,7 @@ import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
 import { useState } from 'react';
 import { evaluate } from 'mathjs';
 import Plot from 'react-plotly.js'; 
+import { useMemo } from 'react';
 
 export default function Bisection() {
 
@@ -46,8 +47,28 @@ const plotData = useMemo(() =>  {
         xs.push(x);
         ys.push(f(x));
       }
+      const midXs = steps.map(s => s.c);
+      const midYs = steps.map(s => f(s.c));
 
- }
+      return [
+        {
+          x: xs,
+          y: ys,
+          type: 'scatter',
+          mode: 'lines',
+          name: 'f(x)'
+        },
+        {
+          x: midXs,
+          y: midYs,
+          type: 'scatter',
+          mode: 'markers+lines',
+          marker: { size: 6 },
+          name: 'Midpoints'
+        }
+      ];
+
+ },[steps, fx, a, b]);
 
  
 
@@ -104,6 +125,13 @@ c is the root, otherwise the half-interval where the sign change persists become
 
             
             </div>
+            <section className="inputs">
+            <label>
+            f(x)=
+           <input value={fx} onChange={e => setFx(e.target.value)} />
+           </label>  
+             
+             </section>
 
            
             
