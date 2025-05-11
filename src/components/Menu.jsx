@@ -3,7 +3,18 @@ import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
 import newtonRaphsonLogo from '../assets/newton-raphson.webp';
 import simpsonsRule from '../assets/simpsons-rule.png';
 import gaussSeidel from '../assets/gauss-seidel.gif';
+import { useState } from 'react';
+import Bisection from './Bisection';
 export default function Menu() {
+const [goBisection,setGoBisection] = useState(false);
+
+
+  function handleBisection() {
+     setGoBisection(true);
+  }
+  if(goBisection) {
+    return <Bisection/>
+  }
 
     return (
         <div id='menu'>
@@ -14,7 +25,7 @@ export default function Menu() {
             <div className="section">
             <img src={bisectionLogo} alt="" />
              <h4>Bisection</h4>
-             <button data-label="Register" className="rainbow-hover">
+             <button data-label="Register" className="rainbow-hover" onClick={handleBisection}>
               <span className="sp">Bisection</span>
               </button>
              </div>
