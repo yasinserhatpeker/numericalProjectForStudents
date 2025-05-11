@@ -19,8 +19,15 @@ const f=x => evaluate(fx,{x});
     const ε = Number(tol);
     const log = [];
 
-    
+    if (f(aa) * f(bb) > 0) {
+        alert('f(a) and f(b) must have opposite signs!');
+        return;
+      }
+
+      let i = 1;
+      
  }
+
      return (
          <div id="menu">
             <div className="menu-bisection">
