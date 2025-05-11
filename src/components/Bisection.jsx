@@ -1,6 +1,7 @@
 import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
 import { useState } from 'react';
 import { evaluate } from 'mathjs';
+import Plot from 'react-plotly.js'; 
 
 export default function Bisection() {
 
@@ -25,7 +26,12 @@ const f=x => evaluate(fx,{x});
       }
 
       let i = 1;
-      
+      while ((bb - aa) / 2 > ε && i < 100) {
+        const c  = (aa + bb) / 2;
+        const fc = f(c);
+        log.push({ i, a: aa, b: bb, c, fc });
+        
+
  }
 
      return (
@@ -88,3 +94,4 @@ c is the root, otherwise the half-interval where the sign change persists become
          </div>
      )
 }
+ 
