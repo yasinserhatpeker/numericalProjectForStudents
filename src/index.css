@@ -16,13 +16,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   height: 100%;
-  /* min-height: 100rem; */
+ 
 }
 
 body {
   margin: 0;
   padding: 2rem;
-  /* background: linear-gradient(180deg, #22182f 0%, #2c2437 100%); */
+  
   background-color: #33174b;
   background-attachment: fixed;
   background-size: cover;
@@ -271,4 +271,89 @@ header h3 {
   text-align: start;
   padding-left: 2rem;
   
+}
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items:center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.inputs label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 650;
+  font-size: 1.2rem;
+  color: #ebe7ef;
+}
+.inputs input {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid #010002;
+  border-radius: 0.35rem;
+  background: #7272d6;
+  color: #ebe7ef;
+  min-width: 160px;
+}
+
+.inputs button {
+  padding: 0.55rem 1.25rem;
+  border-radius: 0.4rem;
+}
+.results {
+  overflow-x: auto;
+}
+
+.results h3 {
+  font-size: 3rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.results table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.results th,
+.results td {
+  padding: 0.45rem 0.6rem;
+  text-align: center;
+  border: 1px solid #7979d7;
+}
+
+.results tbody tr:nth-child(even) {
+  background: #5151a4;
+}
+
+.plotly-wrapper {
+  margin-top: 1.5rem;
+}
+
+.plotly-wrapper .js-plotly-plot {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .inputs label {
+    color: #e5e7eb;
+  }
+  .inputs input {
+    background: #522a69;
+    border-color: #374151;
+    color: #f3f4f6;
+  }
+  .results thead th {
+    background: #33283c;
+    color: #f3f4f6;
+  }
+  .results tbody tr:nth-child(even) {
+    background: #4f3763;
+  }
+  .results td {
+    border-color: #374151;
+  }
 }

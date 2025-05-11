@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Bisection from './Bisection';
 export default function Menu() {
 const [goBisection,setGoBisection] = useState(false);
+const [goNewtonRaphson,setGoNewtonRaphson]=useState(false);
 
 
   function handleBisection() {
@@ -15,6 +16,13 @@ const [goBisection,setGoBisection] = useState(false);
   if(goBisection) {
     return <Bisection/>
   }
+  function handleNewtonRaphson() {
+    setGoNewtonRaphson(true);
+  }
+  if(goNewtonRaphson) {
+    
+  }
+
 
     return (
         <div id='menu'>
