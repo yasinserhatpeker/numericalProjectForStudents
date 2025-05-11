@@ -5,6 +5,7 @@ import simpsonsRule from '../assets/simpsons-rule.png';
 import gaussSeidel from '../assets/gauss-seidel.gif';
 import { useState } from 'react';
 import Bisection from './Bisection';
+import NewtonRaphson from './NewtonRaphson';
 export default function Menu() {
 const [goBisection,setGoBisection] = useState(false);
 const [goNewtonRaphson,setGoNewtonRaphson]=useState(false);
@@ -20,9 +21,8 @@ const [goNewtonRaphson,setGoNewtonRaphson]=useState(false);
     setGoNewtonRaphson(true);
   }
   if(goNewtonRaphson) {
-    
+    return <NewtonRaphson/>
   }
-
 
     return (
         <div id='menu'>
@@ -40,7 +40,7 @@ const [goNewtonRaphson,setGoNewtonRaphson]=useState(false);
              <div className="section">
             <img src={newtonRaphsonLogo} alt="" />
              <h4>Newton Raphson</h4>
-             <button data-label="Register" className="rainbow-hover">
+             <button data-label="Register" className="rainbow-hover" onClick={handleNewtonRaphson}>
               <span className="sp">Newton Raphson</span>
               </button>
              </div>
