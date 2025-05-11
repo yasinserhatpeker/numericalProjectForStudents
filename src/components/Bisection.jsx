@@ -30,9 +30,26 @@ const f=x => evaluate(fx,{x});
         const c  = (aa + bb) / 2;
         const fc = f(c);
         log.push({ i, a: aa, b: bb, c, fc });
-        
+
+        if (fc === 0) break;         
+      (f(aa) * fc < 0) ? (bb = c) : (aa = c);
+      i += 1;
+    }
+    setSteps(log);
+} 
+
+const plotData = useMemo(() =>  {
+    const xs = [];
+    const ys = [];
+    const step = (b - a) / 200; 
+    for (let x = Number(a); x <= Number(b); x += step) {
+        xs.push(x);
+        ys.push(f(x));
+      }
 
  }
+
+ 
 
      return (
          <div id="menu">
