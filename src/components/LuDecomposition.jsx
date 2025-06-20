@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 import * as math from 'mathjs';
 import Plot from 'react-plotly.js';
