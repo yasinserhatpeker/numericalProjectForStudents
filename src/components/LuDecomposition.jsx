@@ -1,10 +1,4 @@
-// LuDecomposition.jsx — interactive LU factorisation demo (fixed)
-// -----------------------------------------------------------------------------
-// Key fix: math.js exposes `lup()` not `lu()`. We now call `math.lup(A)` and
-// use the returned `{L, U, p}` permutation vector. Cached solves are performed
-// via forward‑ and back‑substitution on L and U after permuting b.
-// -----------------------------------------------------------------------------
-// Quick install (once): npm i mathjs react-plotly.js plotly.js-dist-min
+
 
 import { useState } from 'react';
 import * as math from 'mathjs';

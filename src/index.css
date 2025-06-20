@@ -388,11 +388,7 @@ header h3 {
   margin-top: 4rem;
 }
 
-/*
-======================================================================
-  Responsive adjustments
-====================================================================== */
-/* Large tablets / small laptops */
+
 @media (max-width: 1024px) {
   body {
     padding: 1.5rem;
@@ -408,7 +404,7 @@ header h3 {
   }
 }
 
-/* Tablets & landscape phones */
+
 @media (max-width: 768px) {
   body {
     padding: 1rem;
