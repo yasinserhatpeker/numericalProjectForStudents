@@ -101,7 +101,7 @@ header h3 {
     font-family: 'Lato', serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(#74dcda, #0b6362);
+    background: linear-gradient(#55a7a4, #0b6362);
     color: #d9e2f1;
     min-height: 100vh;
     border-radius: 5rem;
@@ -115,7 +115,7 @@ header h3 {
   font-size: 2.5rem;
   margin-top:  1rem;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #d79ae4 10%, #402b9b 90%);
+  background: linear-gradient(90deg, #816389 10%, #402b9b 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -165,7 +165,7 @@ header h3 {
       #ea60da,
       #ed8f57,
       #fbd41d,
-      #2cca91
+      #24c288
     );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -259,7 +259,7 @@ header h3 {
   margin-top:  1rem;
   padding-top: 1rem;
   text-transform: uppercase;
-  background: linear-gradient(90deg, #d79ae4 10%, #402b9b 90%);
+  background: linear-gradient(90deg, #b27bbe 10%, #402b9b 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -329,11 +329,13 @@ header h3 {
 
 .plotly-wrapper {
   margin-top: 1.5rem;
+  
 }
 
 .plotly-wrapper .js-plotly-plot {
   width: 100% !important;
   height: auto !important;
+  
 }
 
 
@@ -357,3 +359,92 @@ header h3 {
     border-color: #374151;
   }
 }
+
+.menu-newton h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-top:  1rem;
+  padding-top: 1rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #d79ae4 10%, #221461 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu-newton p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: start;
+  padding-left: 2rem;
+  
+}
+#backButton {
+  margin-left: 5rem;
+  
+}
+#backButtonAlgo {
+  margin-top: 4rem;
+}
+
+/*
+======================================================================
+  Responsive adjustments
+====================================================================== */
+/* Large tablets / small laptops */
+@media (max-width: 1024px) {
+  body {
+    padding: 1.5rem;
+  }
+  #menu .sections {
+    gap: 4rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  .results h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Tablets & landscape phones */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  #navbar,
+  #footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.6rem 0.4rem;
+  }
+  #navbar img,
+  #footer img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  #menu .sections {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  #menu img {
+    width: 5rem;
+    height: 5rem;
+  }
+  header h2,
+  header p {
+    padding-left: 2rem;
+    text-align: center;
+  }
+  .inputs label {
+    font-size: 1rem;
+  }
+  .inputs input {
+    min-width: 120px;
+  }
+  .results table {
+    font-size: 0.95rem;
+  }
+}
+

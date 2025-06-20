@@ -2,39 +2,33 @@ import { useState, useMemo, useEffect } from 'react';
 import { compile } from 'mathjs';
 import Plot from 'react-plotly.js';
 import bisectionLogo from '../assets/19.03.02-Bisection-method.png';
+import Menu from './Menu';
 
 export default function Bisection() {
-  
-  const [fx, setFx]   = useState('x^3 - x - 2');
-  const [a, setA]     = useState(-2);
-  const [b, setB]     = useState( 3);
+
+    
+
+
+  const [fx, setFx] = useState('x^3 - x - 2');
+  const [a, setA] = useState(-2);
+  const [b, setB] = useState(3);
   const [tol, setTol] = useState(0.001);
+  const [goToMenu,setGoToMenu]=useState(false);
 
-  const [steps, setSteps] = useState([]);   
-  const [errMsg, setErrMsg] = useState(''); 
+  const [steps, setSteps] = useState([]);
+  const [errMsg, setErrMsg] = useState('');
 
-  
+
+
   const compiled = useMemo(() => {
     try {
       return compile(fx);
     } catch {
-      return null; 
+      return null;
     }
   }, [fx]);
 
-  
-  useEffect(() => {
-    if (fx.trim() === '') {
-      setErrMsg('Enter a function definition.');
-    } else if (!compiled) {
-      setErrMsg('⚠️ Syntax error in f(x)');
-    } else {
-      setErrMsg('');
-    }
-  }, [fx, compiled]);
-
- 
-  const f = x => {
+  const evaluateF = (x) => {
     if (!compiled) return NaN;
     try {
       return compiled.evaluate({ x });
@@ -44,77 +38,75 @@ export default function Bisection() {
   };
 
   
-  function runBisection() {
-    if (errMsg || !compiled) return;   
+  const [fa, fb] = useMemo(() => {
+    return [evaluateF(Number(a)), evaluateF(Number(b))];
+  }, [a, b, compiled]);
 
-    let aa = Number(a);
-    let bb = Number(b);
-    if (aa === bb) {
-      alert('a and b must be different.');
+  
+  useEffect(() => {
+    if (!compiled) {
+      setErrMsg('⚠️ Syntax error in f(x)');
       return;
     }
-    if (aa > bb) [aa, bb] = [bb, aa]; 
-
-    const fa = f(aa);
-    const fb = f(bb);
     if (!Number.isFinite(fa) || !Number.isFinite(fb)) {
-      alert('f(a) or f(b) is not a real number.');
+      setErrMsg('⚠️ f(a) or f(b) is not a finite number');
       return;
     }
     if (fa * fb > 0) {
-      alert('f(a) and f(b) must have opposite signs.');
+      setErrMsg('⚠️ f(a) and f(b) must have opposite signs');
       return;
     }
+    setErrMsg('');
+  }, [compiled, fa, fb]);
 
+  const runBisection = () => {
+    if (errMsg) return;
+    let aa = Number(a);
+    let bb = Number(b);
     const ε = Number(tol);
     const log = [];
-    let i = 1;
-    let mid, fmid;
-
-    while ((bb - aa) / 2 > ε && i <= 100) {
-      mid  = (aa + bb) / 2;
-      fmid = f(mid);
-      log.push({ i, a: aa, b: bb, c: mid, fc: fmid });
-
-      if (fmid === 0) break;          
-      (fa * fmid < 0) ? (bb = mid) : (aa = mid);
-      i += 1;
+    for (let i = 1; i <= 100 && (bb - aa) / 2 > ε; i++) {
+      const c = (aa + bb) / 2;
+      const fc = evaluateF(c);
+      log.push({ i, a: aa, b: bb, c, fc });
+      if (fc === 0) break;
+      if (evaluateF(aa) * fc < 0) {
+        bb = c;
+      } else {
+        aa = c;
+      }
     }
-
     setSteps(log);
-  }
+  };
 
-  
+
   const plotData = useMemo(() => {
-    if (!compiled) return [];
+    if (errMsg) return [];
+    const N = 400;
+    const xs = [];
+    const ys = [];
+    const aa = Number(a);
+    const bb = Number(b);
+    const step = (bb - aa) / (N - 1);
+    for (let i = 0; i < N; i++) {
+      const x = aa + i * step;
+      xs.push(x);
+      ys.push(evaluateF(x));
+    }
+    const midXs = steps.map((s) => s.c);
+    const midYs = midXs.map(evaluateF);
+    return [
+      { x: xs, y: ys, mode: 'lines', name: 'f(x)' },
+      { x: midXs, y: midYs, mode: 'markers+lines', name: 'midpoints' },
+    ];
+  }, [a, b, steps, errMsg]);
 
-    const N = 250;
-    const min = Math.min(a, b);
-    const max = Math.max(a, b);
-    const xs = Array.from({ length: N }, (_, k) => min + (k * (max - min)) / (N - 1));
-    const ys = xs.map(x => f(x));
-
-    const lineTrace = {
-      x: xs,
-      y: ys,
-      mode: 'lines',
-      name: 'f(x)',
-    };
-
-    if (steps.length === 0) return [lineTrace];
-    const mids  = steps.map(s => s.c);
-    const fMids = mids.map(m => f(m));
-
-    const midTrace = {
-      x: mids,
-      y: fMids,
-      mode: 'markers+lines',
-      marker: { size: 8 },
-      name: 'midpoints',
-    };
-
-    return [lineTrace, midTrace];
-  }, [compiled, a, b, steps]);
+  function handleBack() {
+    setGoToMenu(true);
+ }
+ if(goToMenu) {
+   return <Menu/>
+ }
 
   return (
      <div id="menu">
@@ -169,89 +161,97 @@ c is the root, otherwise the half-interval where the sign change persists become
 [a,b]. This guaranteed, slow-but-steady process narrows the root’s location with each iteration without needing derivatives or complex algebra.
            </p>
            </div>
-           <section className='inputs'>
+            
+           <section className="inputs">
         <label>
           f(x)
-          <input
-            value={fx}
-            onChange={e => setFx(e.target.value)}
-            aria-label='function definition'
-          />
+          <input value={fx} onChange={(e) => setFx(e.target.value)} />
         </label>
-
         <label>
           a
-          <input type='number' value={a} onChange={e => setA(e.target.value)} />
+          <input
+            type="number"
+            value={a}
+            onChange={(e) => setA(e.target.value)}
+          />
+          
         </label>
-
         <label>
           b
-          <input type='number' value={b} onChange={e => setB(e.target.value)} />
+          <input
+            type="number"
+            value={b}
+            onChange={(e) => setB(e.target.value)}
+          />
+         
         </label>
-
         <label>
           tolerance
           <input
-            type='number'
-            step='0.0001'
+            type="number"
+            step="0.0001"
             value={tol}
-            onChange={e => setTol(e.target.value)}
+            onChange={(e) => setTol(e.target.value)}
           />
         </label>
-
+        {errMsg && <div className="err-msg">{errMsg}</div>}
       </section>
-        <button className='rainbow-hover' onClick={runBisection} disabled={!!errMsg}>
-         <span className='sp'>Execute the function</span>
+        <button className="rainbow-hover" onClick={runBisection} disabled={!!errMsg}>
+          <span className='sp'>Execute</span>
         </button>
 
-      
-      {errMsg && <p style={{ color: '#ff7373', marginTop: '-0.5rem' }}>{errMsg}</p>}
-
-     
-      {steps.length > 0 && (
-        <section className='results'>
-          <h3>Iterations</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>a</th>
-                <th>b</th>
-                <th>c</th>
-                <th>f(c)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {steps.map(({ i, a, b, c, fc }) => (
-                <tr key={i}>
-                  <td>{i}</td>
-                  <td>{a.toFixed(6)}</td>
-                  <td>{b.toFixed(6)}</td>
-                  <td>{c.toFixed(6)}</td>
-                  <td>{Number.isFinite(fc) ? fc.toExponential(3) : 'NaN'}</td>
+      {steps.length > 0 && !errMsg && (
+        <>
+          <section className="results">
+            <h3>Iterations</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>a</th>
+                  <th>b</th>
+                  <th>c</th>
+                  <th>f(c)</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-      )}
+              </thead>
+              <tbody>
+                {steps.map(({ i, a, b, c, fc }) => (
+                  <tr key={i}>
+                    <td>{i}</td>
+                    <td>{a.toFixed(6)}</td>
+                    <td>{b.toFixed(6)}</td>
+                    <td>{c.toFixed(6)}</td>
+                    <td>{fc.toExponential(3)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p>
+              Approx. root ≈ <strong>{steps[steps.length - 1].c.toFixed(6)}</strong> (ε={tol})
+            </p>
+          </section>
 
+          <div className="plot-container">
+            <Plot
+              data={plotData}
+              layout={{
+                margin: { t: 20 },
+                xaxis: { title: 'x' },
+                yaxis: { title: 'f(x)' },
+                height: 400,
+                
+              }}
+              config={{ responsive: true }}
+            />
+          </div>
+        </>
+      )}
+     
+     <button data-label="Register" className="rainbow-hover" onClick={handleBack} id='backButton'>
+              <span className="sp">Back to Menu</span>
+              </button>
       
-      {plotData.length > 0 && (
-        <div className='plotly-wrapper'>
-          <Plot
-            data={plotData}
-            layout={{
-              margin: { t: 20, r: 20, l: 40, b: 40 },
-              xaxis: { title: 'x' },
-              yaxis: { title: 'f(x)' },
-              height: 400,
-            }}
-            config={{ responsive: true }}
-          />
-        </div>
-      )}
-
-  </div>
+          
+           </div>
   )
  }
